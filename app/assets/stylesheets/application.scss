@@ -7,7 +7,9 @@
 // @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
 @import "mapbox-gl/dist/mapbox-gl";
+@import "bootstrap/scss/bootstrap";
 
 // Your CSS partials
 @import "components/index";
+@import "components/navbar";
 @import "pages/index";
