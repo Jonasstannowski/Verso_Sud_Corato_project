@@ -17,3 +17,4 @@ require("bootstrap/dist/js/bootstrap")
 // const imagePath = (name) => images(name, true)
 
 import "controllers"
+
