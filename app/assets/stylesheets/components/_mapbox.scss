@@ -1,5 +1,12 @@
+#map {
+  overflow:visible;
+}
+
 .mapboxgl-popup {
-  max-width: 200px;
+  transform:none !important;
+  right: 0%;
+  top: 110%;
+  width: 390px;
 }
 
 .mapboxgl-popup-content {
