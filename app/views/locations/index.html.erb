@@ -9,20 +9,22 @@
 		<div class="slide">
 			<h1>MENU</h1>
 			<ul>
-				<li><a href="#"><i class="fas fa-tv"></i>dashboard</a></li>
-				<li><a href="#"><i class="far fa-user"></i>profile</a></li>
-				<li><a href="#"><i class="fab fa-gripfire"></i>trending</a></li>
-				<li><a href="#"><i class="far fa-comments"></i>messages</a></li>
-				<li><a href="#"><i class="far fa-folder"></i>file manager</a></li>
-				<li><a href="#"><i class="far fa-address-book"></i>portfolio</a></li>
-				<li><a href="#"><i class="far fa-heart"></i>saved</a></li>
-				<li><a href="#"><i class="fas fa-cogs"></i>setting</a></li>
+				<li><a href="#"><i class="fa-brands fa-buffer"></i></i>subjects</a></li>
+				<li><a href="#"><i class="fa-solid fa-shuffle"></i></i>random</a></li>
+        <div id="social">
+          <a href="https://www.versosud.org/"><i class="fa-solid fa-globe"></i></a>
+          <a href="https://www.instagram.com/_versosud_/"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/VersoSudEcosistemaCulturale/"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.youtube.com/channel/UCTAzPmZG5ROgTW-P-tPepeQ"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+
 			</ul>
 		</div>
-    <div id="map" style="width: 100%; height: 600px;"
+<div id="map" style="width: 390px; height: 844px;"
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-	</label>
-	<section></section>
+</div>
+
+</label>
+<section></section>

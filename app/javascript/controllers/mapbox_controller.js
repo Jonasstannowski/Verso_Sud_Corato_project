@@ -38,5 +38,5 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 100, maxZoom: 15, duration: 2000 })
   }
 
-  _
+  
 }

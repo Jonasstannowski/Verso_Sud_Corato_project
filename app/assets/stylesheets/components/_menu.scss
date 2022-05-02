@@ -9,7 +9,7 @@
 
 .slide {
   height: 0px;
-  width: 180px;
+  width: 190px;
   background: #fff;
   position: absolute ;
   transform: translateX(-250px);
@@ -122,4 +122,16 @@ input[type="checkbox"]:checked~.toggle .bottom_line {
 input[type="checkbox"]:checked~.toggle .middle_line {
   transform: translateX(20px);
   opacity: 0;
+}
+
+#social {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: #837027;
+  a i {
+    color:black;
+    width: 40px;
+    text-align: center;
+  }
 }
