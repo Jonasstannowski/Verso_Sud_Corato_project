@@ -1,0 +1,28 @@
+#menuModal {
+  background-color: #f2efe2;
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -150px;
+
+}
+
+.modal-top {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#closemenuBtn {
+  background-color: #f2efe2;
+  border: 0px;
+}
+
+#menuModal:hover {
+  #closeBtn {
+    font-size: large;
+  }
+}

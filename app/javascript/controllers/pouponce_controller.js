@@ -5,10 +5,17 @@ function showModal() {
   if (is_modal_show != 'alredy shown') {
     sessionStorage.setItem('alreadyShow', 'alredy shown');
     $("#myModal").show()
-  }else{
+    console.log("not_yet_shown")
+  }
+  else{
     console.log("is_alredy_shown");
+    $("#myModal").hide()
   }
 }
+
+$(window).on('load', function () {
+  $('#myModal').hide();
+});
 
 $("#closeBtn").on("click", function(){
   $("#myModal").hide();

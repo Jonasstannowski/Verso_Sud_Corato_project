@@ -1,4 +1,4 @@
-<label>
+<label data-backdrop="static">
 		<input type="checkbox">
 		<div class="toggle">
 			<span class="top_line common"></span>
@@ -9,8 +9,10 @@
 		<div class="slide">
 			<h1>MENU</h1>
 			<ul>
-				<li><a href="#"><i class="fa-brands fa-buffer"></i></i>subjects</a></li>
-				<li><a href="#"><i class="fa-solid fa-shuffle"></i></i>random</a></li>
+				<li>
+        <%# <a href="#"><i class="fa-brands fa-buffer"></i>subjects</a></li> %>
+        <li><button id="buttonmenu"><i class="fa-brands fa-buffer"></i>subjects</button></li>
+				<li><a href="#"><i class="fa-solid fa-shuffle"></i>random</a></li>
         <div id="social">
           <a href="https://www.versosud.org/"><i class="fa-solid fa-globe"></i></a>
           <a href="https://www.instagram.com/_versosud_/"><i class="fa-brands fa-instagram"></i></a>
@@ -20,7 +22,7 @@
 
 			</ul>
 		</div>
-<div id="map" style="width: 390px; height: 844px;"
+<div id="map"
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -28,12 +30,27 @@
 
 </label>
 <section></section>
-<div id="myModal">
+
+
+<div id="myModal" >
   <div class="modal-top">
     <div id="popup-header">What you can do</div>
     <button id="closeBtn">X</button>
   </div>
   <div class="modal-body">
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+  </div>
+</div>
+
+<div id="menuModal" >
+  <div class="modal-top">
+    <div id="popup-header">Chose subject</div>
+    <button id="closemenuBtn">X</button>
+  </div>
+  <div class="modal-body">
+    <p>Nature</p>
+    <br>
+    <p>Streetart</p>
+    <br>
   </div>
 </div>

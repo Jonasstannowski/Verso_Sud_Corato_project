@@ -1,5 +1,10 @@
 #map {
   overflow:visible ;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .mapboxgl-popup {
@@ -15,8 +20,8 @@
     color: #837027 !important;
   }
   background-color: #f2efe2;
-  height: 182px;
-  width: 390px !important;
+  //height: 182px;
+  max-width: 100% !important;
   text-align: center;
   font-family: "Open Sans", sans-serif;
 }

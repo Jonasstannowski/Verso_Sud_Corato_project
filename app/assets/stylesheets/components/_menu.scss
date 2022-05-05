@@ -24,6 +24,7 @@
   text-align: right;
   padding: 20px 0 ;
   padding-right: 30px;
+  padding-top: 0px;
 
   pointer-events: none;
 }
@@ -51,6 +52,24 @@ ul li:hover a {
 ul li a i {
   width: 40px;
   text-align: center;
+}
+
+ul li button {
+  background: #837027;
+  color: black;
+  font-weight: 500;
+  display: block;
+  padding: 5px 0;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: .2s ease-out;
+  border-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+ul li button i {
+    width: 40px;
+    text-align: center;
 }
 
 /* toggle button */
