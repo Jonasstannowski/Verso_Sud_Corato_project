@@ -1,7 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from "!mapbox-gl"
 
-
 export default class extends Controller {
   static values = {
     apiKey: String,
@@ -38,5 +37,5 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 100, maxZoom: 15, duration: 2000 })
   }
 
-  
+
 }

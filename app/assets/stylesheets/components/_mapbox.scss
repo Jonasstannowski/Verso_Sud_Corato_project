@@ -11,7 +11,7 @@
   transform:none !important;
   right: 0%;
   top: 101%;
-  width: 390px !important;
+  width: 393px !important;
 }
 
 .mapboxgl-popup-content {
@@ -20,8 +20,10 @@
     color: #837027 !important;
   }
   background-color: #f2efe2;
-  //height: 182px;
-  //max-width: 100% !important;
   text-align: center;
   font-family: "Open Sans", sans-serif;
+}
+
+.mapboxgl-popup-anchor-botto {
+  background-color: #837027;
 }

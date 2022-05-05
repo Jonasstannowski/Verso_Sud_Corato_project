@@ -10,3 +10,4 @@ $("#buttonmenu").on("click", function () {
 $("#closemenuBtn").on("click", function () {
   $("#menuModal").hide();
 })
+
