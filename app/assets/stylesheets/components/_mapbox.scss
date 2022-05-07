@@ -12,6 +12,9 @@
   right: 0%;
   top: 101%;
   width: 393px !important;
+  element.style {
+    max-width: 393px !important;
+  }
 }
 
 .mapboxgl-popup-content {
