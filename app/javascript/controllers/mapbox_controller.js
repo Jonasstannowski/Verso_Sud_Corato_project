@@ -30,14 +30,16 @@ export default class extends Controller {
         // Draw an arrow next to the location dot to indicate which direction the device is heading.
         showUserHeading: true,
 
-      }),
-      
+      })
+      //console.log(UserLocation) for tracking distance between User and Location
     );
   }
 
+
+
   _addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup({ className: 'Mediapopup', Width: '393px !imortant', maxWidth: '393px;'}
+      const popup = new mapboxgl.Popup({ className: 'Mediapopup', Width: '393px', maxWidth: '393px;'}
       ).setHTML(marker.info_window)
       new mapboxgl.Marker({
         color: "#827027"
@@ -53,6 +55,16 @@ export default class extends Controller {
     this.markersValue.forEach(marker => bounds.extend([marker.lng, marker.lat]))
     this.map.fitBounds(bounds, { padding: 100, maxZoom: 15, duration: 2000 })
   }
+
+  ////_addDirectionsToMap() {
+  //  this.map.addControl(
+    //  new MapboxDirections({
+    // accessToken: mapboxgl.accessToken
+    //  }),
+    //'top-left'
+    //);
+  //}
+
   //for tracking distance between User and Location
 
   //////_distanceUserAndMarker() {
