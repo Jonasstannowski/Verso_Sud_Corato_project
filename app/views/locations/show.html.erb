@@ -1,14 +1,43 @@
-<p id="notice"><%= notice %></p>
+<label data-backdrop="static">
+		<input type="checkbox">
+		<div class="toggle">
+			<span class="top_line common"></span>
+			<span class="middle_line common"></span>
+			<span class="bottom_line common"></span>
+		</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @location.name %>
-</p>
+		<div class="slide">
+			<h1>MENU</h1>
+			<ul>
+        <li><button id="buttonmenu"><i class="fa-brands fa-buffer"></i>subjects</button></li>
+				<li><a href="#"><i class="fa-solid fa-shuffle"></i>random</a></li>
+        <div id="social">
+          <a href="https://www.versosud.org/"><i class="fa-solid fa-globe"></i></a>
+          <a href="https://www.instagram.com/_versosud_/"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/VersoSudEcosistemaCulturale/"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.youtube.com/channel/UCTAzPmZG5ROgTW-P-tPepeQ"><i class="fa-brands fa-youtube"></i></a>
+        </div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @location.address %>
-</p>
+			</ul>
+		</div>
+<div id="map"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
+</label>
+<section></section>
+
+<div id="menuModal" >
+  <div class="modal-top">
+    <div id="popup-header">Chose subject</div>
+    <button id="closemenuBtn">&times;</button>
+  </div>
+  <div class="modal-body">
+    <p>Nature</p>
+    <br>
+    <p>Streetart</p>
+    <br>
+  </div>
+</div>

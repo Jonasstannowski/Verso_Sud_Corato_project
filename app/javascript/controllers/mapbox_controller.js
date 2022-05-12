@@ -18,24 +18,26 @@ export default class extends Controller {
     })
     this._addMarkersToMap()
     this._fitMapToMarkers()
+    // this.//_addDirectionsToMap() // add direktions api
     this.map.addControl(
       new mapboxgl.GeolocateControl({
         positionOptions: {
+
           enableHighAccuracy: true
         },
         // When active the map will receive updates to the device's location as it changes.
         trackUserLocation: true,
         // Draw an arrow next to the location dot to indicate which direction the device is heading.
-        showUserHeading: true
-      })
+        showUserHeading: true,
+
+      }),
+      
     );
   }
 
-
-
   _addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup(//{ className: 'Mediapopup', Width: '393px'}
+      const popup = new mapboxgl.Popup({ className: 'Mediapopup', Width: '393px !imortant', maxWidth: '393px;'}
       ).setHTML(marker.info_window)
       new mapboxgl.Marker({
         color: "#827027"
@@ -51,6 +53,10 @@ export default class extends Controller {
     this.markersValue.forEach(marker => bounds.extend([marker.lng, marker.lat]))
     this.map.fitBounds(bounds, { padding: 100, maxZoom: 15, duration: 2000 })
   }
+  //for tracking distance between User and Location
 
-
+  //////_distanceUserAndMarker() {
+   // if (UserLocation.latitued && UserLocation.longitued - Location.latitued && Location.longitued < 3)
+   // $(".mapboxgl-popup").show()
+  //}
 }

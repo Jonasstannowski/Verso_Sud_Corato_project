@@ -16,6 +16,15 @@ class LocationsController < ApplicationController
 
   # GET /locations/1
   def show
+    @location = Location.find(params[:id])
+
+    @markers = @location.geocoded.map do |location|
+      {
+        lat: location.latitude,
+        lng: location.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { location: location })
+      }
+    end
   end
 
   # GET /locations/new
