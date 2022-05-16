@@ -75,7 +75,7 @@ export default class extends Controller {
 
 
   _addApidirektions() {
-    console.log("script_working")
+    //console.log("script_working")
     //if (window.location['/locations/4'] === '/locations/4') {
       // an arbitrary start will always be the same
       // only the end or destination will change
@@ -129,7 +129,7 @@ export default class extends Controller {
         }
         // add turn instructions here at the end
       }
-      console.log("here")
+      //console.log("here")
       $("#map").on('load', () => {
         // make an initial directions request that
         // starts and ends at the same location
