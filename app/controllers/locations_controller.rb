@@ -16,7 +16,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/1
   def show
-    @location = Location.find(params[:id])
+    @location = Location.all
 
     @markers = @location.geocoded.map do |location|
       {

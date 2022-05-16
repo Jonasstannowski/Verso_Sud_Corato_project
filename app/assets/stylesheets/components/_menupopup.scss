@@ -19,11 +19,16 @@
 #closemenuBtn {
   background-color: #f2efe2;
   border: 0px;
-  
+
 }
 
 #menuModal:hover {
   #closeBtn {
     font-size: large;
   }
+}
+
+.link-in-menupopup {
+  text-decoration: none;
+  color: black;
 }

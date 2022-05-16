@@ -1,6 +1,4 @@
-<%#  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
-%>
+
 <label data-backdrop="static">
 		<input type="checkbox">
 		<div class="toggle">
@@ -49,9 +47,10 @@
     <button id="closemenuBtn">&times;</button>
   </div>
   <div class="modal-body">
-    <p>Nature</p>
+    <%= link_to "Nature", '/locations/4', class: "link-in-menupopup" %>
     <br>
-    <p>Streetart</p>
+    <%= link_to "Streetart", '/locations/11', class: "link-in-menupopup" %>
     <br>
+    <%#  <button id ><%= link_to "Nature", '/locations/4', class: "link-in-menupopup" %><%# </button> %>
   </div>
 </div>

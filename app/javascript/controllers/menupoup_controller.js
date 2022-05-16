@@ -1,5 +1,6 @@
 $(window).on('load', function () {
   $('#menuModal').hide();
+  console.log("realod")
 });
 
 $("#buttonmenu").on("click", function () {
@@ -11,3 +12,6 @@ $("#closemenuBtn").on("click", function () {
   $("#menuModal").hide();
 })
 
+$(".link-in-menupopup").on("click", function () {
+  $("#menuModal").hide();
+})
