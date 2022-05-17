@@ -73,7 +73,27 @@ ul li button i {
     width: 40px;
     text-align: center;
 }
+#menuhomediv {
+  display: flex;
+}
 
+#homemenu {
+  background: #837027;
+  color: black;
+  font-weight: 500;
+  display: block;
+  padding: 5px 0;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: .2s ease-out;
+  border-width: 0px;
+}
+
+ul li i {
+  padding-top: 5px;
+  width: 40px;
+  text-align: center;
+}
 /* toggle button */
 input[type="checkbox"] {
   display: none;
