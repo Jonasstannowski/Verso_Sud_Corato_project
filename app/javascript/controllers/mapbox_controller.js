@@ -5,8 +5,11 @@ import mapboxgl from "!mapbox-gl";
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    waypoints: Array
   }
+
+
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
@@ -18,8 +21,11 @@ export default class extends Controller {
     })
     this._addMarkersToMap()
     this._fitMapToMarkers()
-    this._addApidirektions() // add diections controler
-    // this._addDirectionsControlerToMap() // add direktions api
+    //const start = [16.410691429626354, 41.15339555205503];
+    //const end = [16.410691429626354, 41.15339555205503];
+    // this.////_addApidirektions() // add diections API
+    this._addStartMarker()
+    // this._addDirectionsControlerToMap() // add direktions controler
     this.map.addControl(
       new mapboxgl.GeolocateControl({
         positionOptions: {
@@ -34,13 +40,61 @@ export default class extends Controller {
       })
       //console.log(UserLocation) for tracking distance between User and Location
     );
+    $("#map").on('load', () => {
+      // initial directions request that
+      // starts and ends at the same location
+      //getRoute(start, end);
+      const route = mapElement.dataset.route
+      const geojson = {
+        type: 'Feature',
+        properties: {},
+        geometry: {
+          type: 'LineString',
+          coordinates: route
+        }
+      };
+      // Add starting point to the map
+      map.addLayer({
+        id: 'route',
+        type: 'line',
+        source: {
+          type: 'geojson',
+          data: route
+        },
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        paint: {
+          'line-color': '#3887be',
+          'line-width': 5,
+          'line-opacity': 0.75
+        }
+      });
+    });
   }
 
+  _addStartMarker() {
+    this.waypointsValue.forEach(( waypoint) => {
+      const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundSize = 'contain';
+      element.style.backgroundColor = '#FFFFFF';
+      element.style.borderRadius = '50 %';
+      element.style.width = '40px';
+      element.style.height = '40px';
+      new mapboxgl.Marker(element)
+        .setLngLat([waypoint.lng, waypoint.lat])
+        .addTo(this.map);
+        //console.log(this.map)
+      console.log(element)
+    });
+  };
 
 
   _addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup({ className: 'Mediapopup', Width: '393px', maxWidth: '393px;'}
+      const popup = new mapboxgl.Popup({ className: 'Mediapopup', Width: '393px', maxWidth: '393px;' }
       ).setHTML(marker.info_window)
       new mapboxgl.Marker({
         color: "#827027"
@@ -72,95 +126,4 @@ export default class extends Controller {
    // if (UserLocation.latitued && UserLocation.longitued - Location.latitued && Location.longitued  3)
    // $(".mapboxgl-popup").show()
   //}
-
-
-  _addApidirektions() {
-    //console.log("script_working")
-    //if (window.location['/locations/4'] === '/locations/4') {
-      // an arbitrary start will always be the same
-      // only the end or destination will change
-
-    const start = [16.410691429626354, 41.15339555205503];
-      // this is where the code for the next step will go
-
-      // create a function to make a directions request
-      async function getRoute(end) {
-        // make a directions request using cycling profile
-        // an arbitrary start will always be the same
-        // only the end or destination will change
-        const query = await fetch(
-          //`https://api.mapbox.com/directions/v5/mapbox/walking/16.41073736771048%2C41.15338854592645%3B16.411264502947745%2C41.15342422292807%3B16.4111638141938%2C41.15329935333713%3B16.411193428533153%2C41.15317894314964%3B16.411637643620935%2C41.15323691845285%3B16.411844943995163%2C41.153165564226356%3B16.412597148210097%2C41.15299163797437%3B16.412431307911106%2C41.153170023868284%3B16.41249645945723%2C41.15335732853384%3B16.411756100977186%2C41.152924743138726%3B16.411840811679838%2C41.15201866844117%3B16.411438266451057%2C41.151771308078025%3B16.41134572731852%2C41.152119702687514%3B16.41052360937846%2C41.15230859350157%3B16.40946442000819%2C41.152811692656854%3B16.409831142316392%2C41.15293913538591%3B16.410733843382815%2C41.15336394269522?alternatives=true&continue_straight=true&geometries=geojson&language=en&overview=simplified&steps=true&access_token=pk.eyJ1Ijoiam9uYXNzdGFubm93c2tpIiwiYSI6ImNrdmtzcWNjazB6YmoydnRrMXlsZzdpOXYifQ.S2bhSymUkMvsXOl6xsfQXA`,
-          `https://api.mapbox.com/directions/v5/mapbox/cycling/${start[16.410691429626354]},${start[41.15339555205503]};${end[16.41107611118835]},${end[41.15333307932616]}?alternatives=true&continue_straight=true&geometries=geojson&language=en&overview=simplified&steps=true&access_token=pk.eyJ1Ijoiam9uYXNzdGFubm93c2tpIiwiYSI6ImNrdmtzcWNjazB6YmoydnRrMXlsZzdpOXYifQ.S2bhSymUkMvsXOl6xsfQXA`,
-          { method: 'GET' }
-        );
-        const json = await query.json();
-        const data = json.routes[0];
-        const route = data.geometry.coordinates;
-        const geojson = {
-          type: 'Feature',
-          properties: {},
-          geometry: {
-            type: 'LineString',
-            coordinates: route
-          }
-        };
-        // if the route already exists on the map, we'll reset it using setData
-        if (map.getSource('route')) {
-          map.getSource('route').setData(geojson);
-        }
-        // otherwise, we'll make a new request
-        else {
-          map.addLayer({
-            id: 'route',
-            type: 'line',
-            source: {
-              type: 'geojson',
-              data: geojson
-            },
-            layout: {
-              'line-join': 'round',
-              'line-cap': 'round'
-            },
-            paint: {
-              'line-color': '#3887be',
-              'line-width': 5,
-              'line-opacity': 0.75
-            }
-          });
-        }
-        // add turn instructions here at the end
-      }
-      $("#map").on('load', () => {
-        // make an initial directions request that
-        // starts and ends at the same location
-        getRoute(start);
-
-        // Add starting point to the map
-        map.addLayer({
-          id: 'point',
-          type: 'circle',
-          source: {
-            type: 'geojson',
-            data: {
-              type: 'FeatureCollection',
-              features: [
-                {
-                  type: 'Feature',
-                  properties: {},
-                  geometry: {
-                    type: 'Point',
-                    coordinates: start
-                  }
-                }
-              ]
-            }
-          },
-          paint: {
-            'circle-radius': 10,
-            'circle-color': '#3887be'
-          }
-        });
-      });
-   // }
-  }
 }
