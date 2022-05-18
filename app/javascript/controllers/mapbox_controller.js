@@ -18,8 +18,8 @@ export default class extends Controller {
     })
     this._addMarkersToMap()
     this._fitMapToMarkers()
-    this._addApidirektions() // add Api diections
-    //this._addDirectionsToMap() // add direktions api
+    this._addApidirektions() // add diections controler
+    // this._addDirectionsControlerToMap() // add direktions api
     this.map.addControl(
       new mapboxgl.GeolocateControl({
         positionOptions: {
@@ -57,7 +57,7 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 100, maxZoom: 15, duration: 2000 })
   }
 
-  _addDirectionsToMap() {
+  _addDirectionsControlerToMap() {
     this.map.addControl(
       new MapboxDirections({
      accessToken: mapboxgl.accessToken
@@ -80,7 +80,7 @@ export default class extends Controller {
       // an arbitrary start will always be the same
       // only the end or destination will change
 
-
+    const start = [16.410691429626354, 41.15339555205503];
       // this is where the code for the next step will go
 
       // create a function to make a directions request
@@ -129,7 +129,6 @@ export default class extends Controller {
         }
         // add turn instructions here at the end
       }
-      //console.log("here")
       $("#map").on('load', () => {
         // make an initial directions request that
         // starts and ends at the same location
@@ -160,7 +159,6 @@ export default class extends Controller {
             'circle-color': '#3887be'
           }
         });
-        // this is where the code from the next step will go
       });
    // }
   }
