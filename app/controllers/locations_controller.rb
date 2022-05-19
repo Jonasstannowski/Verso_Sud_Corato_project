@@ -5,12 +5,13 @@ class LocationsController < ApplicationController
   def index
     @locations = Location.all
 
-    @waypoints = @locations.geocoded.map do |location|
-      {
-        lat: location.latitude,
-        lng: location.longitude
-      }
+    @wayy = ''
+
+    @locations.each do |location|
+      @wayy += "#{location.longitude},#{location.latitude};"
     end
+    @endstr = @wayy.length - 1
+    @way = @wayy[0...@endstr]
     @markers = @locations.geocoded.map do |location|
       {
         lat: location.latitude,

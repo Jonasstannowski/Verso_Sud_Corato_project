@@ -21,6 +21,7 @@ export default class extends Controller {
     })
     this._addMarkersToMap()
     this._fitMapToMarkers()
+    getRoute()
     //const start = [16.410691429626354, 41.15339555205503];
     //const end = [16.410691429626354, 41.15339555205503];
     // this.////_addApidirektions() // add diections API
@@ -40,6 +41,53 @@ export default class extends Controller {
       })
       //console.log(UserLocation) for tracking distance between User and Location
     );
+
+    async function getRoute() {
+      // make a directions request using cycling profile
+      // an arbitrary start will always be the same
+      // only the end or destination will change
+      const query = await fetch(
+        `https://api.mapbox.com/directions/v5/mapbox/cycling/16.4132922,41.1541349;16.4108891,41.1533388?steps=true&geometries=geojson&access_token=pk.eyJ1Ijoiam9uYXNzdGFubm93c2tpIiwiYSI6ImNsMjY5dGl0dTAwcHIzaXBiZGtmY3Q3enkifQ.lzyFf4FZmbK30d8p3H6dpQ`,
+        { method: 'GET' }
+      );
+      const json = await query.json();
+      const data = json.routes[0];
+      const route = data.geometry.coordinates;
+      const geojson = {
+        type: 'Feature',
+        properties: {},
+        geometry: {
+          type: 'LineString',
+          coordinates: route
+        }
+      };
+      // if the route already exists on the map, we'll reset it using setData
+     // if (this.map.getSource('route')) {
+      //  this.map.getSource('route').setData(geojson);
+     // }
+      // otherwise, we'll make a new request
+     // else {
+        this.map.addLayer({
+          id: 'route',
+          type: 'line',
+          source: {
+            type: 'geojson',
+            data: geojson
+          },
+          layout: {
+            'line-join': 'round',
+            'line-cap': 'round'
+          },
+          paint: {
+            'line-color': '#3887be',
+            'line-width': 5,
+            'line-opacity': 0.75
+          }
+        });
+      //}
+      // add turn instructions here at the end
+    }
+
     $("#map").on('load', () => {
       // initial directions request that
       // starts and ends at the same location
