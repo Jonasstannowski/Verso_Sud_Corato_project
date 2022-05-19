@@ -95,3 +95,20 @@
   }
 }
 
+
+_addStartMarker() {
+    this.waypointsValue.forEach(( waypoint) => {
+      const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundSize = 'contain';
+      element.style.backgroundColor = '#FFFFFF';
+      element.style.borderRadius = '50 %';
+      element.style.width = '40px';
+      element.style.height = '40px';
+      new mapboxgl.Marker(element)
+        .setLngLat([waypoint.lng, waypoint.lat])
+        .addTo(this.map);
+        //console.log(this.map)
+      console.log(element)
+    });
+  };

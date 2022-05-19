@@ -24,7 +24,7 @@ export default class extends Controller {
     //const start = [16.410691429626354, 41.15339555205503];
     //const end = [16.410691429626354, 41.15339555205503];
     // this.////_addApidirektions() // add diections API
-    this._addStartMarker()
+    // this._addStartMarker()
     // this._addDirectionsControlerToMap() // add direktions controler
     this.map.addControl(
       new mapboxgl.GeolocateControl({
@@ -73,23 +73,6 @@ export default class extends Controller {
       });
     });
   }
-
-  _addStartMarker() {
-    this.waypointsValue.forEach(( waypoint) => {
-      const element = document.createElement('div');
-      element.className = 'marker';
-      element.style.backgroundSize = 'contain';
-      element.style.backgroundColor = '#FFFFFF';
-      element.style.borderRadius = '50 %';
-      element.style.width = '40px';
-      element.style.height = '40px';
-      new mapboxgl.Marker(element)
-        .setLngLat([waypoint.lng, waypoint.lat])
-        .addTo(this.map);
-        //console.log(this.map)
-      console.log(element)
-    });
-  };
 
 
   _addMarkersToMap() {
