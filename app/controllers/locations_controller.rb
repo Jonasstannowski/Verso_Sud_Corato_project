@@ -23,9 +23,16 @@ class LocationsController < ApplicationController
 
   # GET /locations/1
   def show
-    @location = Location.all
+    @locations = Location.all
 
-    @markers = @location.geocoded.map do |location|
+    @wayy = ''
+
+    @locations.each do |location|
+      @wayy += "#{location.longitude},#{location.latitude};"
+    end
+    @endstr = @wayy.length - 1
+    @way = @wayy[0...@endstr]
+    @markers = @locations.geocoded.map do |location|
       {
         lat: location.latitude,
         lng: location.longitude,
