@@ -23,7 +23,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/1
   def show
-    @locations = Location.all
+    @locations = Location.where(subject: 'test')
 
     @wayy = ''
 
