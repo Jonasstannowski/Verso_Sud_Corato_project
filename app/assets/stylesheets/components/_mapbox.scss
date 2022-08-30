@@ -43,3 +43,21 @@
 .mapboxgl-popup-close-button {
   padding: 10px 10px;
 }
+
+.scroll {
+  background: #fff;
+  height: 200px;
+  overflow: scroll;
+  right: 20px;
+  left: 20px;
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+.video {
+  height: 200px;
+  top: 20px;
+  right: 20px !important;
+  left: 20px;
+  padding: 10px;
+}
