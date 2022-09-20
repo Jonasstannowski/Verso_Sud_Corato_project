@@ -43,22 +43,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/new
   def new
-    @locations = Location.where(subject: 'test')
-
-    @wayy = ''
-
-    @locations.each do |location|
-      @wayy += "#{location.longitude},#{location.latitude};"
-    end
-    @endstr = @wayy.length - 1
-    @way = @wayy[0...@endstr]
-    @markers = @locations.geocoded.map do |location|
-      {
-        lat: location.latitude,
-        lng: location.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { location: location })
-      }
-    end
+    @locations = Location.new
   end
 
   # GET /locations/1/edit
