@@ -8,9 +8,9 @@
     <%= f.input :address %>
     <%= f.input :subject %>
     <%= f.input :text %>
-    <%= f.input :photo, as: :file %>
-    <%= f.input :audio, as: :file %>
-    <%= f.input :video, as: :file %>
+    <%= f.input :photo, as: :file, input_html: { multiple: true } %>
+    <%= f.input :audio, as: :file, input_html: { multiple: true } %>
+    <%= f.input :video, as: :file, input_html: { multiple: true } %>
   </div>
 
   <div class="form-actions">
