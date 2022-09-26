@@ -27,7 +27,7 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoiam9uYXNzdGFubm93c2tpIiwiYSI6ImNsMjY5dGl0dTAwc
    container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     center: [16.4132922, 41.1541349], // starting position
-    zoom: 12
+    zoom: 14
   });
   // create a function to make a directions request
   async function getRoute(ways) {

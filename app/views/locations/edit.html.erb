@@ -1,6 +1,26 @@
 <h1>Editing Location</h1>
-
-<%= render 'form', location: @location %>
-
-<%= link_to 'Show', @location %> |
-<%= link_to 'Back', locations_path %>
+<div class="input-field">
+  <%= form_with model: @location do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+    <br>
+    <%= f.label :subject %>
+    <%= f.text_field :subject %>
+    <br>
+    <%= f.label :text %>
+    <%= f.file_field :text %>
+    <br>
+    <%= f.label :audio %>
+    <%= f.file_field :audio %>
+    <br>
+    <%= f.label :video %>
+    <%= f.file_field :video %>
+    <br>
+    <%= f.submit %>
+  <% end %>
+</div>
+  <%= link_to 'Show', @location %> |
+  <%= link_to 'Back', locations_path %>

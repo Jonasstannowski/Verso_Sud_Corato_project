@@ -48,6 +48,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/1/edit
   def edit
+    @location = Location.find(params[:id])
   end
 
   # POST /locations
@@ -78,12 +79,12 @@ class LocationsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_location
-      @location = Location.find(params[:id])
-    end
+  def set_location
+    @location = Location.find(params[:id])
+  end
 
     # Only allow a trusted parameter "white list" through.
-    def location_params(*)
-      params.require(:location).permit(:name, :address, :photo)
-    end
+  def location_params(*)
+    params.require(:location).permit(:name, :address, :photo, :picture [])
+  end
 end
