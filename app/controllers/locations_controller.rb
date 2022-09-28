@@ -48,7 +48,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/1/edit
   def edit
-    @location = Location.find(params[:id])
+    @locations = Location.all
   end
 
   # POST /locations

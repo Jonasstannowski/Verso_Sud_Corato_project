@@ -1,6 +1,6 @@
 <h1>Editing Location</h1>
 <div class="input-field">
-  <%= form_with model: @location do |f| %>
+  <%= form_with model: @locations.each do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
     <br>

@@ -34,12 +34,15 @@
 }
 
 .mapboxgl-ctrl-top-right .mapboxgl-ctrl {
-  margin: 20px 15px 0 0 !important;
+  margin: 95vh 15px 0 0 !important;
   border-radius: 2px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   background: #fff;
 }
 
+.mapboxgl-ctrl-bottom-right {
+  display: none;
+}
 .mapboxgl-popup-close-button {
   padding: 10px 10px;
 }
@@ -60,4 +63,13 @@
   right: 20px !important;
   left: 20px;
   padding: 10px;
+}
+
+#VersoSudPicture {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  top: 20px;
+  right: 15px;
+  z-index: 1 ;
 }
