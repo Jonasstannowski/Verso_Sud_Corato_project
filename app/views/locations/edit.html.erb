@@ -1,6 +1,7 @@
 <h1>Editing Location</h1>
 <div class="input-field">
-  <%= form_with model: @locations.each do |f| %>
+<% @locations.each do |location| %>
+  <%= form_for location do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
     <br>
@@ -20,7 +21,10 @@
     <%= f.file_field :video %>
     <br>
     <%= f.submit %>
+    <br>
   <% end %>
+<% end %>
+
 </div>
   <%= link_to 'Show', @location %> |
   <%= link_to 'Back', locations_path %>
