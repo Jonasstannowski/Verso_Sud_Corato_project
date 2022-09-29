@@ -11,7 +11,7 @@
 			<h1>MENU</h1>
 			<ul>
         <li><button id="buttonmenu"><i class="fa-brands fa-buffer"></i>subjects</button></li>
-				<li><a href="#"><i class="fa-solid fa-shuffle"></i>random</a></li>
+				<li><div id="menuhomediv"><i class="fa-solid fa-shuffle"></i><%= link_to "random", ['/locations', '/locations/2'].sample, id: "homemenu" %></div></li>
         <li><div id="menuhomediv"><i class="fa-solid fa-house"></i><%= link_to "home", '/locations', id: "homemenu"%></div></li>
         <div id="social">
           <a href="https://www.versosud.org/"><i class="fa-solid fa-globe"></i></a>
