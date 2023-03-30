@@ -65,7 +65,7 @@ class LocationsController < ApplicationController
   # PATCH/PUT /locations/1
   def update
     @locations = Location.all
-    
+
     if @location.update(location_params)
       redirect_to @location, notice: 'Location was successfully updated.'
     else

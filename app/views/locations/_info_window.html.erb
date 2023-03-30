@@ -1,17 +1,31 @@
-<h2><%= location.name %></h2>
-<p><%= location.address %></p>
+<div calss="info">
+  <h2><%= location.name %></h2>
 
-<audio controls>
-  <source src= <%= location.audio %> >
-</audio>
+  <div class="content-separator"></div>
 
+  <div class="text"> where: <p><%= location.address %></p></div>
 
-<%# <div class="scroll">
+  <div class="content-separator2"></div>
 
-</div>%>
-<img src=<%= location.text %> style="width:200px;height:200px;" >
+  <audio controls class="text">
+    <source src= <%= location.audio %> >
+  </audio>
 
-<video controls class="video">
-  <source src=<%= location.video %> type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<div class="content-separator2"></div>
+  <%# <div class="scroll">
+
+  </div>%>
+  <img src=<%= location.text %> style="width:200px;height:200px;" >
+
+<div class="content-separator2"></div>
+
+  <video controls class="video" id="video">
+    <source src=<%= location.video %> type="video/mp4">
+    Your browser does not support the video tag.
+
+  </video>
+</div>
+
+<div class="input-field">
+  <%= render 'locations/form', location: @location %>
+</div>

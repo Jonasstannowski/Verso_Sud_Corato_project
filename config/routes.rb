@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'locations#index'
 
-  get "locations/edit", to: "locations#edit"
+  get "locations/:id/edit", to: "locations#edit", :as => :general_manager
+  patch "locations/:id", to: "locations#update"
 end
