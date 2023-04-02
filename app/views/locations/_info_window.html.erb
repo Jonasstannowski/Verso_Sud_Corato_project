@@ -19,13 +19,15 @@
 
 <div class="content-separator2"></div>
 
-  <video controls class="video" id="video">
-    <source src=<%= location.video %> type="video/mp4">
-    Your browser does not support the video tag.
 
-  </video>
 </div>
 
 <div class="input-field">
   <%= render 'locations/form', location: @location %>
 </div>
+
+<video id="video" class="<%= 'hidden' if location.video.blank? %>" controls>
+  <% if location.video.present? %>
+    <source src="<%= location.video %>" type="video/mp4">
+  <% end %>
+</video>

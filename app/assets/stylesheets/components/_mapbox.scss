@@ -57,7 +57,7 @@
   padding: 10px;
 }
 
-.video {
+#video {
   height: 200px;
   top: 20px;
   right: 20px !important;
@@ -88,4 +88,6 @@
   background-color: white;
 }
 
-
+.hidden {
+  display: none;
+}
