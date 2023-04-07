@@ -65,6 +65,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "geocoder"
 gem "cloudinary"
 gem 'friendly_id', '~> 5.4.0'
-gem 'sass-rails',
-gem 'uglifier',
-gem 'coffee-rails'
+
