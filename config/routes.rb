@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   get '/general_manager', to: 'locations#edit'
   patch 'locations/:id', to: 'locations#update'
+  
 end
