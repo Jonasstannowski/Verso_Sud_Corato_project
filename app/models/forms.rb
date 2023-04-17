@@ -1,3 +1,3 @@
-class Form < ApplicationRecord
-  belongs_to :locations
+class Forms < ApplicationRecord
+  belongs_to :location
 end
