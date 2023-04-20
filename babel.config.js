@@ -15,6 +15,9 @@ module.exports = function(api) {
     )
   }
 
+  // Set the `loose` option
+  const loose = true;
+
   return {
     presets: [
       isTestEnv && [
@@ -40,11 +43,16 @@ module.exports = function(api) {
       'babel-plugin-macros',
       '@babel/plugin-syntax-dynamic-import',
       isTestEnv && 'babel-plugin-dynamic-import-node',
-      '@babel/plugin-transform-destructuring',
+      [
+        '@babel/plugin-transform-destructuring',
+        {
+          loose
+        }
+      ],
       [
         '@babel/plugin-proposal-class-properties',
         {
-          loose: true
+          loose
         }
       ],
       [
