@@ -5,5 +5,8 @@ Rails.application.routes.draw do
 
   get '/general_manager', to: 'locations#edit'
   patch 'locations/:id', to: 'locations#update'
-  
+
+  # Catch-all route
+  get '*path', to: redirect('/')
+
 end
