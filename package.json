@@ -1,6 +1,10 @@
 {
   "name": "verso_sud_corato_project",
   "private": true,
+  "engines": {
+    "node": ">=16.14.0",
+    "npm": ">=6.14.18"
+  },
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack serve --mode development"
